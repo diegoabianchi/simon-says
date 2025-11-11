@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/contacto.js" defer></script>
+  <title>Contacto - Simon Dice</title>
+</head>
+<body>
+    
+    <!-- HEADER Y NAVEGACIÓN -->
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="nav-link">Juego</a>
+            <a href="contacto.html" class="nav-link">Contacto</a>
+            <a href="https://github.com/tu_usuario/tu_repo" target="_blank" class="nav-link">Código GitHub</a>
+        </nav>
+    </header>
+
+    <div class="contenedor-contacto">
+        <h1 class="titulo-contacto">Contacto</h1>
+        <p>Utiliza el siguiente formulario para enviarnos un mensaje.</p>
+
+        <form id="formularioContacto" class="formulario">
+            <div class="grupo-campo">
+                <label for="nombre">Nombre Completo:</label>
+                <input type="text" id="nombre" placeholder="Tu Nombre" required>
+                <p class="error-validacion" id="errorNombreC"></p>
+            </div>
+            
+            <div class="grupo-campo">
+                <label for="email">Email:</label>
+                <input type="text" id="email" placeholder="ejemplo@dominio.com" required>
+                <p class="error-validacion" id="errorEmailC"></p>
+            </div>
+            
+            <div class="grupo-campo">
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                <p class="error-validacion" id="errorMensajeC"></p>
+            </div>
+            
+            <button type="submit" class="btn btn-principal">Enviar Mensaje</button>
+            <p class="mensaje-exito" id="mensajeExito"></p>
+        </form>
+    </div>
+</body>
+</html>

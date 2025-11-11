@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/script.js" defer></script>
+  <title>Simon Dice</title>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="nav-link">Juego</a>
+            <a href="contacto.html" class="nav-link">Contacto</a>
+            <!-- Enlace a GitHub (Requerimiento Obligatorio) -->
+            <a href="https://github.com/diegoabianchi/simon-says" target="_blank" class="nav-link">Código GitHub</a>
+        </nav>
+    </header>
+
+    <div class="contenedor-juego">
+        <h1 class="titulo">Simon Dice</h1>
+        <div class="info-juego">
+            <p class="jugador-nombre">Jugador: <span id="nombreJugador">Invitado</span></p>
+            <p>Nivel: <span id="displayNivel">0</span></p>
+            <p>Score: <span id="displayScore">0</span></p>
+            <p>Tiempo: <span id="displayTiempo">0s</span></p>
+            <button id="btnVerRanking" class="btn btn-ranking">Ver Ranking</button>
+        </div>
+        <div class="tablero-simple">
+            <div id="verde" class="boton-simon verde"></div>
+            <div id="rojo" class="boton-simon rojo"></div>
+            <div id="amarillo" class="boton-simon amarillo"></div>
+            <div id="azul" class="boton-simon azul"></div>
+        </div>
+        
+    </div>
+
+    <!-- MODALES (Ocultos por defecto) -->
+    <!-- 1. Modal de Inicio de Partida -->
+    <div id="modalInicio" class="modal-overlay visible">
+        <div class="modal-content">
+            <h2>¡Bienvenido al Simon Dice!</h2>
+            <p>Ingresa tu nombre para empezar la partida (mínimo 3 letras):</p>
+            <input type="text" id="inputNombre" placeholder="Tu Nombre" maxlength="15">
+            <div class="controles-modal">
+                <button id="btnEmpezar" class="btn btn-principal">Empezar a Jugar</button>
+                <button id="btnCerrarInicio" class="btn btn-secundario">Cerrar</button>
+            </div>
+            <p id="errorNombre" class="mensaje-error"></p>
+        </div>
+    </div>
+    
+    <!-- 2. Modal de Fin de Partida -->
+    <div id="modalGameOver" class="modal-overlay">
+        <div class="modal-content">
+            <h2 id="gameOverTitulo">¡FIN DE PARTIDA!</h2>
+            <p id="gameOverMensaje">Perdiste la secuencia.</p>
+            <p class="final-score">Puntaje Final: <span id="finalScoreDisplay">0</span></p>
+            <p class="final-score">Nivel Alcanzado: <span id="finalNivelDisplay">0</span></p>
+            <div class="controles-modal">
+                <button id="btnReiniciar" class="btn btn-principal">Reiniciar Partida</button>
+                <button id="btnVerRankingGameOver" class="btn btn-secundario">Ver Ranking</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 3. Modal de Ranking -->
+    <div id="modalRanking" class="modal-overlay">
+        <div class="modal-content modal-ranking-content">
+            <h2>Ranking de Partidas</h2>
+            <div class="controles-ranking">
+                <p>Ordenar por:</p>
+                <button id="ordenarScore" class="btn btn-secundario">Puntaje</button>
+                <button id="ordenarFecha" class="btn btn-secundario">Fecha</button>
+            </div>
+            <table id="tablaRanking">
+                <thead>
+                    <tr>
+                        <th>Jugador</th>
+                        <th>Score</th>
+                        <th>Nivel</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+                <tbody id="cuerpoTablaRanking">
+                    <!-- Filas generadas por JS -->
+                </tbody>
+            </table>
+            <button id="btnCerrarRanking" class="btn btn-secundario">Cerrar</button>
+        </div>
+    </div>
+</body>
+</html>
