@@ -14,7 +14,8 @@ var secuenciaJugador = [];
 var juegoActivo = false;
 var colores = ['verde', 'rojo', 'amarillo', 'azul'];
 // Referencias del DOM
-var titulo = document.querySelector('.titulo');
+var tituloPrincipal = document.getElementById('tituloPrincipal');
+var tituloNivel = document.getElementById('tituloNivel');
 var botones = document.querySelectorAll('.boton-simon');
 // Referencias de Display
 var displayNivel = document.getElementById('displayNivel');
@@ -51,7 +52,8 @@ function inicializar() {
     gestionarModal(modalRanking, false);
     gestionarModal(modalInicio, true);
 
-    titulo.textContent = 'Simon Dice';
+    tituloPrincipal.textContent = 'Simon Dice';
+    tituloNivel.classList.add('oculto');
     
     // Event Listeners
     btnEmpezar.addEventListener('click', manejarClickEmpezar);
@@ -105,7 +107,8 @@ function siguienteNivel() {
     secuenciaJugador = []; 
     
     displayNivel.textContent = nivel;
-    titulo.textContent = 'Nivel ' + nivel + ' - Memoriza...';
+    tituloPrincipal.textContent = 'Memoriza...';
+    tituloNivel.classList.add('oculto');
 
     deshabilitarInteraccion();
 
@@ -180,7 +183,8 @@ function verificarRespuesta() {
     // 3. Comprobación de éxito (Si el jugador completó la secuencia)
     if (secuenciaJugador.length === secuenciaJuego.length) {
         deshabilitarInteraccion(); 
-        titulo.textContent = '¡Correcto! Preparando Nivel ' + (nivel + 1);
+        tituloPrincipal.textContent = '¡Correcto!';
+        tituloNivel.classList.remove('oculto');
         
         setTimeout(siguienteNivel, 1000);
     }
@@ -463,7 +467,9 @@ function deshabilitarInteraccion() {
  */
 function habilitarInteraccion() {
     var i = 0;
-    titulo.textContent = '¡Tu Turno! Nivel ' + nivel;
+    tituloPrincipal.textContent = '¡Tu Turno!';
+    tituloNivel.textContent = 'Nivel ' + nivel;
+    tituloNivel.classList.remove('oculto');
     
     for (i = 0; i < botones.length; i++) {
         botones[i].addEventListener('click', manejarClicBoton);

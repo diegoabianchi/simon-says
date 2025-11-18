@@ -13,7 +13,7 @@ var errorNombreC = document.getElementById('errorNombreC');
 var errorEmailC = document.getElementById('errorEmailC');
 var errorMensajeC = document.getElementById('errorMensajeC');
 var mensajeExito = document.getElementById('mensajeExito');
-
+var emailDesarrollador = 'desarrollo-simondice@email.com'
 
 /* ******************************************************************************
  * FUNCIONES AUXILIARES DE VALIDACIÓN
@@ -86,7 +86,7 @@ function manejarEnvioFormulario(evento) {
     // Si todas las validaciones son exitosas
     if (esValido === true) {
         // Construir el link mailto (Requerimiento Obligatorio)
-        mailtoLink = 'mailto:correo.destinatario@ejemplo.com' +
+        mailtoLink = 'mailto:' + emailDesarrollador +
                      '?subject=' + encodeURIComponent('Mensaje de Contacto - Simon Dice') +
                      '&body=' + encodeURIComponent('De: ' + nombre + '\n' +
                                                 'Email: ' + email + '\n\n' +
