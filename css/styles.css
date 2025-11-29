@@ -36,7 +36,7 @@ p {
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 15px;
+    margin-top: 0;
     text-align: left;
 }
 
@@ -292,9 +292,13 @@ textarea {
     padding: 30px;
     text-align: center;
     width: 400px;
+    max-height: 90vh;
+    overflow: hidden;
 }
 
 .modal-ranking-content {
+    display: flex;
+    flex-direction: column;
     max-width: 600px;
     width: 90%;
 }
@@ -315,12 +319,30 @@ textarea {
     margin: 10px 0;
 }
 
+.controles-ranking-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    width: 100%;
+    gap: 10px; 
+}
+
 .final-score {
     color: #4caf50;
     font-size: 1.5em;
     font-weight: bold;
     margin: 10px 0;
 }
+
+.ranking-scroll-area {
+    flex-grow: 1;
+    overflow-y: auto;
+    max-height: 400px;
+    margin: 15px 0;
+    width: 100%;
+}
+
 
 /* -------------------------------------------------------------------------- */
 /* MEDIA QUERIES (Siempre al final) */

@@ -32,6 +32,7 @@ var btnReiniciar = document.getElementById('btnReiniciar');
 var btnVerRankingGameOver = document.getElementById('btnVerRankingGameOver');
 var btnVerRanking = document.getElementById('btnVerRanking');
 var btnCerrarRanking = document.getElementById('btnCerrarRanking');
+var btnNuevaPartida = document.getElementById('btnNuevaPartida');
 var btnCerrarInicio = document.getElementById('btnCerrarInicio');
 var ordenarScore = document.getElementById('ordenarScore');
 var ordenarFecha = document.getElementById('ordenarFecha');
@@ -61,6 +62,7 @@ function inicializar() {
     btnVerRankingGameOver.addEventListener('click', manejarClickVerRankingDesdeGameOver);
     btnVerRanking.addEventListener('click', manejarClickVerRanking);
     btnCerrarRanking.addEventListener('click', manejarClickCerrarRanking);
+    btnNuevaPartida.addEventListener('click', manejarClickNuevaPartida);
     btnCerrarInicio.addEventListener('click', manejarClickCerrarInicio);
     ordenarScore.addEventListener('click', manejarClickOrdenarScore);
     ordenarFecha.addEventListener('click', manejarClickOrdenarFecha);
@@ -253,40 +255,36 @@ function manejarClickEmpezar() {
     iniciarJuego();
 }
 
-/**
- * Reinicia la partida después de Game Over.
- */
+//Reinicia la partida después de Game Over.
 function manejarClickReiniciar() {
     gestionarModal(modalGameOver, false);
     // Vuelve a mostrar el modal de inicio para validar el nombre
     gestionarModal(modalInicio, true); 
 }
 
-/**
- * Muestra el modal de ranking.
- */
+// Muestra el modal de ranking.
 function manejarClickVerRanking() {
     cargarRanking('puntaje'); // Cargar por defecto ordenado por puntaje
     gestionarModal(modalRanking, true);
 }
 
-/**
- * Cierra el modal de ranking.
- */
+// Cierra el modal de ranking.
 function manejarClickCerrarRanking() {
     gestionarModal(modalRanking, false);
 }
 
-/**
- * Cierra el modal de inicio.
- */
+// Nueva partida desde el modal de ranking.
+function manejarClickNuevaPartida() {
+    gestionarModal(modalRanking, false);
+    gestionarModal(modalInicio, true);
+}
+
+// Cierra el modal de inicio.
 function manejarClickCerrarInicio() {
     gestionarModal(modalInicio, false);
 }
 
-/**
- * Muestra el ranking desde el modal de Game Over.
- */
+// Muestra el ranking desde el modal de Game Over.
 function manejarClickVerRankingDesdeGameOver() {
     // Primero oculta el modal de Game Over
     gestionarModal(modalGameOver, false);

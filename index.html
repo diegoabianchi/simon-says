@@ -76,20 +76,25 @@
                 <button id="ordenarScore" class="btn btn-secundario">Puntaje</button>
                 <button id="ordenarFecha" class="btn btn-secundario">Fecha</button>
             </div>
-            <table id="tablaRanking">
-                <thead>
-                    <tr>
-                        <th>Jugador</th>
-                        <th>Score</th>
-                        <th>Nivel</th>
-                        <th>Fecha</th>
-                    </tr>
-                </thead>
-                <tbody id="cuerpoTablaRanking">
-                    <!-- Filas generadas por JS -->
-                </tbody>
-            </table>
-            <button id="btnCerrarRanking" class="btn btn-secundario">Cerrar</button>
+            <div class="ranking-scroll-area">
+                <table id="tablaRanking">
+                    <thead>
+                        <tr>
+                            <th>Jugador</th>
+                            <th>Score</th>
+                            <th>Nivel</th>
+                            <th>Fecha</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cuerpoTablaRanking">
+                        <!-- Filas generadas por JS -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="controles-ranking-footer">
+                <button id="btnCerrarRanking" class="btn btn-secundario">Cerrar</button>
+                <button id="btnNuevaPartida" class="btn btn-secundario">Nueva partida</button>
+            </div>
         </div>
     </div>
 </body>
